@@ -13,10 +13,12 @@ export const metadata = {
   title: "Review",
 };
 
-export async function generateStaticParams(): Promise<ReviewPageParams[]> {
-  const slugs = await getSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
+// export async function generateStaticParams(): Promise<ReviewPageParams[]> {
+//   const slugs = await getSlugs();
+//   return slugs.map((slug) => ({ slug }));
+// }
+
+
 export default async function ReviewPage({
   params: { slug },
 }: ReviewPageProps) {
@@ -33,7 +35,6 @@ export default async function ReviewPage({
             key={review.slug}
             className="bg-white border rounded shadow w-80 hover:shadow-xl"
           >
-   
             <Link href={`/reviews/${review.slug}`}>
               <img
                 src={review.image}
@@ -42,13 +43,12 @@ export default async function ReviewPage({
                 height="180"
                 className="rounded-t"
               />
-                       <h2 className="font-orbitron font-semibold py-1 text-center">
-              {review.title}
-            </h2>
-            <div className="flex gap-3 items-baseline">
-              <p className="italic pb-2">{review.date}</p>
-       
-            </div>
+              <h2 className="font-orbitron font-semibold py-1 text-center">
+                {review.title}
+              </h2>
+              <div className="flex gap-3 items-baseline">
+                <p className="italic pb-2">{review.date}</p>
+              </div>
             </Link>
           </li>
         ))}
