@@ -19,9 +19,7 @@ export const metadata = {
 // }
 
 
-export default async function ReviewPage({
-  params: { slug },
-}: ReviewPageProps) {
+export default async function ReviewPage() {
   const reviews = await getReviews();
   // console.log('[ReviewsPage] reviews:', reviews);
   return (
